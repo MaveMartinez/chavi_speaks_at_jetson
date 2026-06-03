@@ -1,0 +1,5 @@
+httpx==0.28.1
+numpy==2.4.4
+sounddevice==0.5.5
+vosk==0.3.45
+pyserial

@@ -1,0 +1,22 @@
+# Entorno virtual
+.venv/
+chavi_env/
+
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Modelos y binarios grandes (descargar por separado)
+piper/
+vosk-model-small-es*/
+*.onnx
+
+# Instaladores
+OllamaSetup.exe
+
+# IDE
+.vscode/
+
+# Basura del navegador
+es_es_ES_davefx*/
