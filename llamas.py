@@ -1,4 +1,3 @@
-# llm.py
 # EN LAPTOP: usa modo conversacional en stream con Ollama
 # EN JETSON: ollama pull llama3.2:3b-instruct-fp16
 
@@ -10,10 +9,8 @@ OLLAMA_URL   = "http://localhost:11434/api/chat"
 #direccion donde ollama escuchara 
 
 # Selección automática del modelo optimizado
-if sys.platform == "win32":
-    OLLAMA_MODEL = "llama3.2:3b"
-else:
-    OLLAMA_MODEL = "llama3.2:3b-instruct-fp16"
+OLLAMA_MODEL = "hadad/LFM2.5-1.2B:Q4_K_M "
+
 
 async def verificar_ollama():
     """Verifica si Ollama está ejecutándose de forma asíncrona."""
@@ -98,7 +95,7 @@ async def verificar_ollama():
 
 # --- NUEVA LÓGICA CONVERSACIONAL XAVI ---
 
-SYSTEM_PROMPT_XAVI = "Eres XAVI, un asistente personal inteligente, elocuente y servicial. Responde siempre en español de forma directa y concisa para mantener la fluidez en una conversación por voz."
+SYSTEM_PROMPT_XAVI = "Eres CHAVI, un asistente personal inteligente, elocuente y servicial. Estas en la feria de cine de Anchash, interactuaras con fanaticos del cine. Responde siempre en español de n tres oraciones o menos, forma directa y concisa en tres oraciones o menos, para mantener la fluidez en una conversacion por voz"
 
 historial_xavi = []
 
