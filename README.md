@@ -18,7 +18,7 @@ Pipeline: Micrófono USB → STT (Whisper) → LLM (Ollama + Llama 3.2) → TTS 
 ## 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/chavi_speaks_at_jetson.git
+git clone https://github.com/MaveMartinez/chavi_speaks_at_jetson.git
 cd chavi_speaks_at_jetson
 ```
 
@@ -51,7 +51,17 @@ curl http://localhost:11434/api/tags
 
 ## 4. Configurar Piper TTS
 
-El repositorio ya incluye el binario `piper/piper` compilado para ARM64 y el modelo de voz `es_ES-davefx-medium.onnx`.
+Descargar el binario ARM64 y el modelo de voz español:
+
+```bash
+# Binario Piper para ARM64 (Jetson)
+wget https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_linux_aarch64.tar.gz
+tar -xzf piper_linux_aarch64.tar.gz
+
+# Modelo de voz español
+wget https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/davefx/medium/es_ES-davefx-medium.onnx
+wget https://huggingface.co/rhasspy/piper-voices/resolve/main/es/es_ES/davefx/medium/es_ES-davefx-medium.onnx.json
+```
 
 Verificar que Piper funciona:
 ```bash
@@ -173,14 +183,14 @@ Verificar ruta del binario y del modelo `.onnx` en `main.py`.
 
 ```
 chavi_speaks_at_jetson/
-├── main.py                      # Loop principal
-├── escucha_activa_stt.py        # STT con faster-whisper
-├── llamas.py                    # LLM con Ollama
-├── serial_out.py                # Comunicación ESP32
-├── validar_stt.py               # Script de prueba STT
-├── piper/                       # Binario Piper ARM64
+├── main.py                       # Loop principal
+├── escucha_activa_stt.py         # STT con faster-whisper
+├── llamas.py                     # LLM con Ollama
+├── serial_out.py                 # Comunicación ESP32
+├── validar_stt.py                # Script de prueba STT
+├── piper/                        # Binario Piper ARM64 (descargar)
 │   └── piper
-├── es_ES-davefx-medium.onnx     # Modelo de voz español
+├── es_ES-davefx-medium.onnx      # Modelo de voz español (descargar)
 └── es_ES-davefx-medium.onnx.json
 ```
 
